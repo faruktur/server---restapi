@@ -1,0 +1,17 @@
+{
+   "type": "mongodb",
+   "host": "mongodb://faruk:proje123@ds125211.mlab.com:25211/wikiproject",
+   "port": 27017,
+   "database": "wikiproject",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+       "src/entities/**/*.ts"
+    ],
+    "migrations": [
+       "src/lib/migration/**/*.ts"
+    ],
+    "subscribers": [
+       "src/lib/subscriber/**/*.ts"
+    ]
+ }
