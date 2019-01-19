@@ -24,7 +24,7 @@ implements IRoleDal
     entity:Role&Function;
     constructor(){
         DatabaseConnection.getConnection().then(con=>{
-            this._context  = con.getMongoRepository<Role>("Role");
+            this._context  = con.getMongoRepository<Role>(Role);
         });
     }
     Get(filter:any): Promise<Role> {

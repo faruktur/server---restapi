@@ -1,5 +1,5 @@
 import { IEntity } from "../../core/IEntity";
-import {MongoRepository, Connection, createConnection, EntitySchema, BaseEntity} from 'typeorm';
+import {MongoRepository, Connection,BaseEntity} from 'typeorm';
 import {injectable } from "inversify";
 import { DatabaseConnection } from "../../core/DatabaseConnection"; 
 import 'reflect-metadata';
@@ -14,12 +14,15 @@ export type DeepPartial<T> = {
 };
 
 @injectable()
-export class TypeOrmRepositoryBase<TEntity extends IEntity>{
+export class TypeOrmRepositoryBase<TEntity extends BaseEntity>{
     connection:Connection;
-    protected _context:MongoRepository<TEntity> = new MongoRepository<TEntity>();
+    protected _context:MongoRepository<TEntity>;
     type:ObjectType<TEntity>;
     entity:TEntity&Function;
     constructor(){
+        DatabaseConnection.getConnection().then(con=>{
+            this._context=con.getMongoRepository<TEntity>(this.type);
+        })
     }
     Get(filter: any): Promise<TEntity> {
        return this._context.findOne(filter);

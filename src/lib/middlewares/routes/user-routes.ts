@@ -16,8 +16,16 @@ export class UserRoutes{
     
     get routes(){
         this.route.get('/users/:id',(req,res,next)=>this._userController.Get(req,res,next));
-        this.route.post('/users/',(req,res,next)=>this._userController.Create(req,res,next));
-        this.route.post('/users/verify',(req,res,next)=>this._userController.verifyEmail(req,res,next));
+        this.route.put('/users/:id',(req,res,next)=>this._userController.updateUser(req,res,next));
+        this.route.put('/users/:id',(req,res,next)=>this._userController.updateAccount(req,res,next));
+        this.route.put('/users/:id',(req,res,next)=>this._userController.updateProfile(req,res,next));
+        
+        this.route.post('/users/addRole/:id',(req,res,next)=>this._userController.addRole(req,res,next));
+        this.route.post('/users/removeRole/:id',(req,res,next)=>this._userController.removeRole(req,res,next));
+
+
+        
+        this.route.post('/users/verify/:email',(req,res,next)=>this._userController.verifyEmail(req,res,next));
         this.route.post('/users/register',(req,res,next)=>this._userController.Register(req,res,next));
         return this.route;
     }

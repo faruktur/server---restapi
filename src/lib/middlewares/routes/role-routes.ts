@@ -9,8 +9,8 @@ export class RoleRoutes{
     roleController = container.get<RoleController>(RoleController);
     
     get routes(){
-        this.route.post("/roles/",(req,res,next)=>{this.roleController.Create(req,res,next)});
-        this.route.get("/roles/",(req,res,next)=>{this.roleController.List(req,res,next)})
+        this.route.post("/roles",(req,res,next)=>{this.roleController.Create(req,res,next)});
+        this.route.get("/roles",(req,res,next)=>{this.roleController.List(req,res,next)})
         return this.route;
     }
 

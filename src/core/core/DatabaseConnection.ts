@@ -2,6 +2,8 @@ import { Connection,createConnection } from "typeorm";
 import { User } from "../../entities/User";
 import { Role } from "../../entities/Role";
 import { Category } from "../../entities/Category";
+import { Article } from "../../entities/Article";
+import { ArticleTitle } from "../../entities/ArticleTitle";
 
 export class DatabaseConnection {
     private static connection:Promise<Connection>=null;
@@ -20,7 +22,7 @@ export class DatabaseConnection {
             host: "localhost",
             port: 27017,
             database: "wikiproject",
-            entities: [User, Role,Category],
+            entities: [User, Role,Category,Article,ArticleTitle],
             useNewUrlParser: true
         });
     }

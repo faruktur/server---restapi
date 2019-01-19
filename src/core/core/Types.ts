@@ -14,6 +14,16 @@ let types = {
     IRoleDal:Symbol('IRoleDal'),
     RoleController:Symbol('RoleController'),
 
+    //Article Title 
+    IArticleTitleDal:Symbol("IArticleTitleDal"),
+    IArticleTitleService:Symbol("IArticleTitleService"),
+    IArticleTitleController:Symbol('IArticleTitleController'),
+
+     //Article 
+     IArticleDal:Symbol("IArticleDal"),
+     IArticleService:Symbol("IArticleService"),
+     IArticleController:Symbol('IArticleController'),
+
 
 
     //Category

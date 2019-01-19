@@ -20,7 +20,7 @@ implements IUserDal
     constructor(){
         DatabaseConnection.getConnection().then(con=>{
             console.log('Mongo connection created...');
-            this._context  = con.getMongoRepository<User>("User");
+            this._context  = con.getMongoRepository<User>(User);
         });
     }
     Get(filter: any): Promise<User> {

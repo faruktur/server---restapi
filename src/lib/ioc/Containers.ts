@@ -19,6 +19,11 @@ import { ICategoryService } from "../../business/interface/ICategoryService";
 import { CategoryManager } from "../../business/concrete/CategoryManager";
 import { CategoryController } from "../controllers/CategoryController";
 import { RoleController } from "../controllers/RoleController";
+import { IArticleTitleDal } from "../../data-access-layer/interface/IArticleTitleDal";
+import { ArticleTitleDal } from "../../data-access-layer/concrete/typeorm/ArticleTitleDal";
+import { IArticleTitleService } from "../../business/interface/IArticleTitleService";
+import { ArticleTitleManager } from "../../business/concrete/ArticleTitleManager";
+import { ArticleTitleController } from "../controllers/ArticleTitleController";
 
 var container = new Container();
 
@@ -33,6 +38,11 @@ container.bind<AuthController>(AuthController).toSelf();
 container.bind<ICategoryDal>(types.ICategoryDal).to(CategoryDal);
 container.bind<ICategoryService>(types.ICategoryService).to(CategoryManager);
 container.bind<CategoryController>(CategoryController).toSelf();
+
+// __ Article Titles __ 
+container.bind<IArticleTitleDal>(types.IArticleTitleDal).to(ArticleTitleDal);
+container.bind<IArticleTitleService>(types.IArticleTitleService).to(ArticleTitleManager);
+container.bind<ArticleTitleController>(ArticleTitleController).toSelf();
 
 // --- Roles ---
 container.bind<IRoleDal>(types.IRoleDal).to(RoleDal);

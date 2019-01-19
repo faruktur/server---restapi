@@ -15,5 +15,7 @@ export interface IUserService extends IServiceBase<IUser>{
     updateProfile(id:string,profile:IProfile):Promise<IUser>;
     updateAccount(id:string,account:IAccount):Promise<IUser>;
     updateUser(id:string,user:IUser):Promise<IUser>;
+    addRole(id:string,roleid:string);
+    removeRole(id:string,roleid:string);
     
 }

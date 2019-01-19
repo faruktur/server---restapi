@@ -13,7 +13,7 @@ export class CategoryDal implements ICategoryDal{
     entity:Category&Function;
     constructor(){
         DatabaseConnection.getConnection().then(con=>{
-            this._context  = con.getMongoRepository<Category>("Category");
+            this._context  = con.getMongoRepository<Category>(Category);
         });
     }
     

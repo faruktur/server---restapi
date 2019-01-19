@@ -5,10 +5,12 @@ import { Container } from 'inversify';
 import * as _container from './ioc/Containers';
 import { RoutesIndex } from './middlewares/routes/routes-index';
 import * as cors from 'cors';
+import { Test } from '../test_typeorm/test';
 
 class App{
     public app : express.Application;
     container:Container;
+    tester:Test = new Test();
     
     constructor(){ 
         this.app = express();
